@@ -1,0 +1,244 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  background: #0d1117;
+  color: #f0f6fc;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 8%;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+}
+
+.navbar h2 {
+  color: #58a6ff;
+}
+
+.navbar span {
+  color: #8b949e;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+  color: #58a6ff;
+}
+
+.hero p {
+  color: #8b949e;
+  margin-bottom: 30px;
+}
+
+.search-form {
+  display: flex;
+  max-width: 600px;
+  margin: auto;
+  gap: 10px;
+}
+
+.search-form input {
+  flex: 1;
+  padding: 15px;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  background: #161b22;
+  color: white;
+  outline: none;
+}
+
+.search-form button {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  background: #238636;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.search-form button:hover {
+  background: #2ea043;
+}
+
+.search-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.profile-section,
+.repositories-section {
+  margin-top: 40px;
+}
+
+.profile-section h2,
+.repositories-section h2 {
+  margin-bottom: 20px;
+}
+
+.profile-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #58a6ff;
+  margin-bottom: 15px;
+}
+
+.username {
+  color: #58a6ff;
+  margin: 8px 0;
+}
+
+.bio {
+  color: #8b949e;
+  margin: 15px 0;
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 25px 0;
+}
+
+.profile-stats h3 {
+  color: #58a6ff;
+}
+
+.profile-stats p {
+  color: #8b949e;
+  font-size: 14px;
+}
+
+.github-link {
+  display: inline-block;
+  background: #238636;
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+}
+
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.repo-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 22px;
+  transition: 0.3s;
+}
+
+.repo-card:hover {
+  transform: translateY(-5px);
+  border-color: #58a6ff;
+}
+
+.repo-card h3 a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.repo-card p {
+  color: #8b949e;
+  margin: 15px 0;
+}
+
+.repo-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 13px;
+}
+
+.welcome {
+  text-align: center;
+  padding: 40px;
+  color: #8b949e;
+}
+
+.welcome h2 {
+  color: #58a6ff;
+  margin-bottom: 12px;
+}
+
+.error {
+  color: #ff7b72;
+  text-align: center;
+  margin: 20px;
+}
+
+.loading {
+  text-align: center;
+  color: #58a6ff;
+}
+
+.no-repos {
+  color: #8b949e;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #8b949e;
+  border-top: 1px solid #30363d;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 18px;
+  }
+
+  .navbar span {
+    font-size: 12px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .search-form {
+    flex-direction: column;
+  }
+
+  .profile-stats {
+    gap: 20px;
+  }
+
+  .profile-card {
+    padding: 20px;
+  }
+}
