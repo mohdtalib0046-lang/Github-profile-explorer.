@@ -1,64 +1,37 @@
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .app {
   min-height: 100vh;
-  background: #0d1117;
-  color: #f0f6fc;
-  font-family: Arial, sans-serif;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 22px 8%;
+.header {
+  text-align: center;
+  padding: 45px 20px;
   background: #161b22;
   border-bottom: 1px solid #30363d;
 }
 
-.navbar h2 {
+.header h1 {
+  font-size: 32px;
   color: #58a6ff;
 }
 
-.navbar span {
+.header p {
+  margin-top: 12px;
   color: #8b949e;
 }
 
 .container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 50px 20px;
+  max-width: 1000px;
+  width: 90%;
+  margin: 35px auto;
 }
 
-.hero {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.hero h1 {
-  font-size: 42px;
-  margin-bottom: 15px;
-  color: #58a6ff;
-}
-
-.hero p {
-  color: #8b949e;
-  margin-bottom: 30px;
-}
-
-.search-form {
+.search-box {
   display: flex;
-  max-width: 600px;
-  margin: auto;
-  gap: 10px;
+  gap: 12px;
+  margin-bottom: 35px;
 }
 
-.search-form input {
+.search-box input {
   flex: 1;
   padding: 15px;
   border: 1px solid #30363d;
@@ -68,103 +41,103 @@
   outline: none;
 }
 
-.search-form button {
-  padding: 15px 25px;
+.search-box button {
+  padding: 0 25px;
   border: none;
   border-radius: 8px;
   background: #238636;
   color: white;
   cursor: pointer;
-  font-weight: bold;
 }
 
-.search-form button:hover {
+.search-box button:hover {
   background: #2ea043;
 }
 
-.search-form button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.profile-section,
-.repositories-section {
-  margin-top: 40px;
-}
-
-.profile-section h2,
-.repositories-section h2 {
-  margin-bottom: 20px;
-}
-
 .profile-card {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 30px;
   background: #161b22;
   border: 1px solid #30363d;
   border-radius: 15px;
-  padding: 30px;
-  text-align: center;
 }
 
 .avatar {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   border: 4px solid #58a6ff;
-  margin-bottom: 15px;
+}
+
+.profile-info h2 {
+  margin-bottom: 8px;
 }
 
 .username {
   color: #58a6ff;
-  margin: 8px 0;
+  margin-bottom: 12px;
 }
 
-.bio {
-  color: #8b949e;
-  margin: 15px 0;
+.profile-info p {
+  margin-bottom: 10px;
 }
 
-.profile-stats {
+.stats {
   display: flex;
-  justify-content: center;
-  gap: 50px;
-  margin: 25px 0;
+  gap: 25px;
+  margin: 20px 0;
 }
 
-.profile-stats h3 {
+.stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stats strong {
   color: #58a6ff;
+  font-size: 22px;
 }
 
-.profile-stats p {
+.stats span {
   color: #8b949e;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .github-link {
   display: inline-block;
+  padding: 10px 16px;
   background: #238636;
   color: white;
+  border-radius: 7px;
   text-decoration: none;
-  padding: 12px 20px;
-  border-radius: 8px;
+}
+
+.repo-section {
+  margin-top: 40px;
+}
+
+.repo-section h2 {
+  margin-bottom: 20px;
 }
 
 .repo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
 }
 
 .repo-card {
+  padding: 22px;
   background: #161b22;
   border: 1px solid #30363d;
   border-radius: 12px;
-  padding: 22px;
-  transition: 0.3s;
 }
 
-.repo-card:hover {
-  transform: translateY(-5px);
-  border-color: #58a6ff;
+.repo-card h3 {
+  margin-bottom: 12px;
 }
 
 .repo-card h3 a {
@@ -174,71 +147,69 @@
 
 .repo-card p {
   color: #8b949e;
-  margin: 15px 0;
+  line-height: 1.5;
 }
 
-.repo-info {
+.repo-details {
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+  gap: 18px;
+  margin-top: 18px;
   font-size: 13px;
+  color: #c9d1d9;
 }
 
+.message,
+.error,
 .welcome {
   text-align: center;
-  padding: 40px;
-  color: #8b949e;
-}
-
-.welcome h2 {
-  color: #58a6ff;
-  margin-bottom: 12px;
+  margin: 30px 0;
 }
 
 .error {
   color: #ff7b72;
-  text-align: center;
-  margin: 20px;
 }
 
-.loading {
-  text-align: center;
-  color: #58a6ff;
+.welcome {
+  padding: 60px 20px;
+  background: #161b22;
+  border-radius: 12px;
 }
 
-.no-repos {
+.welcome p {
   color: #8b949e;
+  margin-top: 12px;
 }
 
 footer {
   text-align: center;
   padding: 25px;
   color: #8b949e;
-  border-top: 1px solid #30363d;
 }
 
-@media (max-width: 600px) {
-  .navbar {
-    padding: 18px;
+@media (max-width: 650px) {
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .navbar span {
-    font-size: 12px;
+  .stats {
+    justify-content: center;
+    gap: 15px;
   }
 
-  .hero h1 {
-    font-size: 30px;
+  .repo-grid {
+    grid-template-columns: 1fr;
   }
 
-  .search-form {
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .search-box {
     flex-direction: column;
   }
 
-  .profile-stats {
-    gap: 20px;
-  }
-
-  .profile-card {
-    padding: 20px;
+  .search-box button {
+    padding: 14px;
   }
 }

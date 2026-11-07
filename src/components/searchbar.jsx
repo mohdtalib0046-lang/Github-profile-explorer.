@@ -1,19 +1,15 @@
+import { useState } from "react";
 
-import React, { useState } from "react";
-
-function SearchBar({ onSearch, loading }) {
+function Searchbar({ onSearch }) {
   const [username, setUsername] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (username.trim()) {
-      onSearch(username.trim());
-    }
+    onSearch(username);
   };
 
   return (
-    <form className="search-form" onSubmit={handleSubmit}>
+    <form className="search-box" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Enter GitHub username..."
@@ -21,11 +17,9 @@ function SearchBar({ onSearch, loading }) {
         onChange={(e) => setUsername(e.target.value)}
       />
 
-      <button type="submit" disabled={loading}>
-        {loading ? "Searching..." : "Search"}
-      </button>
+      <button type="submit">Search</button>
     </form>
   );
 }
 
-export default SearchBar;
+export default Searchbar;

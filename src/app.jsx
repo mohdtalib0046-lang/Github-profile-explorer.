@@ -1,60 +1,50 @@
-
 import { useState } from "react";
-import SearchBar from "./components/searchBar.jsx";
-import ProfileCard from "./components/profileCard.jsx";
-import RepoList from "./components/repoList.jsx";
+import Searchbar from "./components/Searchbar";
+import Profilecard from "./components/Profilecard";
+import Repolist from "./components/Repolist";
 import "./app.css";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [username, setUsername] = useState("mohdtalib0046-lang");
+  const [profile, setProfile] = useState(null);
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const searchUser = async (username) => {
-    if (!username.trim()) {
-      setError("Please enter a GitHub username.");
-      return;
-    }
+  const searchUser = async (name) => {
+    if (!name.trim()) return;
 
     setLoading(true);
     setError("");
-    setUser(null);
+    setProfile(null);
     setRepos([]);
 
     try {
       const response = await fetch(
-        `https://api.github.com/users/${encodeURIComponent(username)}`
+        `https://api.github.com/users/${name}`
       );
 
       if (!response.ok) {
-        if (response.status === 404) {
-          throw new Error("GitHub user not found!");
-        }
-
-        if (response.status === 403) {
-          throw new Error("GitHub API rate limit exceeded. Try again later.");
-        }
-
-        throw new Error("Something went wrong. Please try again.");
+        throw new Error("GitHub user not found!");
       }
 
       const userData = await response.json();
 
       const repoResponse = await fetch(
-        `https://api.github.com/users/${encodeURIComponent(username)}/repos?sort=updated&per_page=100`
+        `https://api.github.com/users/${name}/repos?sort=updated&per_page=100`
       );
 
       if (!repoResponse.ok) {
-        throw new Error("Unable to load repositories.");
+        throw new Error("Unable to load repositories");
       }
 
       const repoData = await repoResponse.json();
 
-      setUser(userData);
+      setProfile(userData);
       setRepos(repoData);
+      setUsername(name);
     } catch (err) {
-      setError(err.message || "An unexpected error occurred.");
+      setError(err.message);
     } finally {
       setLoading(false);
     }
@@ -62,47 +52,35 @@ function App() {
 
   return (
     <div className="app">
-      <nav className="navbar">
-        <h2>GitHub Explorer</h2>
-        <span>Discover Developers</span>
-      </nav>
+      <header className="header">
+        <h1>GitHub Profile Explorer</h1>
+        <p>Explore GitHub profiles and repositories</p>
+      </header>
 
       <main className="container">
-        <section className="hero">
-          <h1>Explore GitHub Profiles</h1>
-          <p>Find developers and discover their amazing projects.</p>
+        <Searchbar onSearch={searchUser} />
 
-          <SearchBar onSearch={searchUser} loading={loading} />
-        </section>
+        {loading && <p className="message">Loading profile...</p>}
 
         {error && <p className="error">{error}</p>}
 
-        {loading && <p className="loading">Searching GitHub...</p>}
-
-        {user && (
+        {profile && (
           <>
-            <section className="profile-section">
-              <h2>Developer Profile</h2>
-              <ProfileCard user={user} />
-            </section>
-
-            <section className="repositories-section">
-              <h2>Public Repositories ({repos.length})</h2>
-              <RepoList repos={repos} />
-            </section>
+            <Profilecard profile={profile} />
+            <Repolist repos={repos} />
           </>
         )}
 
-        {!user && !loading && !error && (
+        {!profile && !loading && !error && (
           <div className="welcome">
-            <h2>Start Exploring!</h2>
-            <p>Enter any GitHub username above to get started.</p>
+            <h2>Discover GitHub Developers</h2>
+            <p>Search any GitHub username to explore their profile.</p>
           </div>
         )}
       </main>
 
       <footer>
-        <p>Made with ❤️ using React and GitHub API</p>
+        <p>Built with React & GitHub API</p>
       </footer>
     </div>
   );
