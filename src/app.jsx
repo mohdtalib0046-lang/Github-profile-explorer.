@@ -1,8 +1,8 @@
 
 import { useState } from "react";
-import SearchBar from "./components/SearchBar.jsx";
-import ProfileCard from "./components/ProfileCard.jsx";
-import RepoList from "./components/RepoList.jsx";
+import SearchBar from "./components/searchBar.jsx";
+import ProfileCard from "./components/profileCard.jsx";
+import RepoList from "./components/repoList.jsx";
 import "./app.css";
 
 function App() {
