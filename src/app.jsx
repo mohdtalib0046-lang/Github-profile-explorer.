@@ -3,7 +3,7 @@ import { useState } from "react";
 import SearchBar from "./components/SearchBar.jsx";
 import ProfileCard from "./components/ProfileCard.jsx";
 import RepoList from "./components/RepoList.jsx";
-import "./App.css";
+import "./app.css";
 
 function App() {
   const [user, setUser] = useState(null);
